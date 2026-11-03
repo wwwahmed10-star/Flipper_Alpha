@@ -1,32 +1,34 @@
-# Flipper Alpha - ملفات KiCad
+# Flipper Alpha - KiCad Files
 
-ملفات مولّدة من صور المخطط والـ PCB المرفوعة:
-- `Flipper_Alpha.kicad_sch`  المخطط الكامل (KiCad 8)
-- `Flipper_Alpha.kicad_pcb`  لوحة جاهزة للتوصيل (KiCad 8)
+Files generated from the uploaded schematic and PCB images:
+- `Flipper_Alpha.kicad_sch` — Complete schematic (KiCad 8)
+- `Flipper_Alpha.kicad_pcb` — PCB layout ready for routing (KiCad 8)
 
-الرموز (Symbols) والـ Footprints **مدمجة داخل الملفات نفسها** - لا تحتاج أي مكتبات خارجية.
+The symbols and footprints are **embedded in the files themselves** — no external libraries are required.
 
-## خريطة التوصيلات (Pin Mapping)
+## Pin Mapping
 
-| الوحدة | الإشارة | ESP32 (CYD) | ملاحظة |
+| Module | Signal | ESP32 (CYD) | Notes |
 |---|---|---|---|
-| PN532 (I2C) | SDA / SCL | GPIO21 / GPIO22 | تغذية 3.3V |
+| PN532 (I2C) | SDA / SCL | GPIO21 / GPIO22 | 3.3V power |
 | CC1101 (SPI) | SCK / MISO / MOSI | GPIO18 / GPIO19 / GPIO23 | Shared SPI |
 | CC1101 | CSN / GDO0 / GDO2 | GPIO5 / GPIO2 / GPIO35 | |
 | NRF24L01 (SPI) | SCK / MISO / MOSI | GPIO18 / GPIO19 / GPIO23 | Shared SPI |
 | NRF24L01 | CE / CSN | GPIO26 / GPIO25 | |
-| IR LED | خرج | GPIO4 عبر مقاومة 220Ω | LED إلى GND |
+| IR LED | Output | GPIO4 through a 220Ω resistor | LED to GND |
 | TSOP (IR RX) | OUT | GPIO34 | |
-| 433MHz RF | TX / RX | GPIO12 / GPIO13 | تغذية 5V |
+| 433MHz RF | TX / RX | GPIO12 / GPIO13 | 5V power |
 | GPS (UART) | TX / RX | GPIO16 / GPIO17 | UART2 |
 
-## افتراضات مهمة (راجعها قبل التصنيع!)
-1. بعض الشبكات في الصورة الأصلية غير واضحة تماماً - استخدمت أكثر تعيين منطقي (مطابق للـ Flipper Zero التقليدي).
-2. الـ PCB **غير موصول (Unrouted)**: المكونات موضوعة والشبكات (Nets) جاهزة - افتح KiCad ووجّه المسارات يدوياً أو باستخدام FreeRouting.
-3. تحقق من Pinout نسخة شاشتك CYD-24325028 بالضبط قبل الطباعة.
-4. J1-J4 (موصلات XH) تركت بدون توصيل - عيّنها حسب احتياج الـ Buttons/Expansion في الـ firmware.
-5. أبعاد اللوحة 125x85mm مع 4 ثقوب تثبيت M3.
+## Important Assumptions (Review Before Manufacturing!)
 
-## خطوات العمل في KiCad
-1. افتح `Flipper_Alpha.kicad_sch` -> تحقق من ERC
-2. افتح `Flipper_Alpha.kicad_pcb` -> اضغط B لتحديث الأرضي، ثم وصّل الشبكات
+1. Some connections in the original image are not completely clear. The most logical pin assignments were used (based on the conventional Flipper Zero layout).
+2. The PCB is **unrouted**: the components are placed and the nets are defined. Open the board in KiCad and route the tracks manually or with FreeRouting.
+3. Verify the exact pinout of your CYD-24325028 display version before fabrication.
+4. J1–J4 (XH connectors) have been left unconnected. Assign them according to your firmware's button or expansion requirements.
+5. The board dimensions are 125 × 85 mm, with four M3 mounting holes.
+
+## KiCad Workflow
+
+1. Open `Flipper_Alpha.kicad_sch` and run the ERC (Electrical Rules Checker).
+2. Open `Flipper_Alpha.kicad_pcb`, press **B** to refill the copper zones, then route the nets.
