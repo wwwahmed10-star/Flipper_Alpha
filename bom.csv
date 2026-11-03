@@ -1,0 +1,13 @@
+Id,Designator,Package,Quantity,Designation
+1,U1,Module_CYD_2432S028,1,ESP32 Smart Display 2.8inch
+2,U2,Module_PN532_I2C,1,PN532 NFC RFID Module
+3,U3,Module_CC1101_SPI,1,CC1101 Sub-1GHz Transceiver (3.3V)
+4,U4,Module_NRF24L01_SPI,1,NRF24L01+ 2.4GHz Transceiver (3.3V)
+5,U5,Module_GPS_UART,1,GPS Module (NEO-6M / GT-U7)
+6,D1,LED_5mm_IR,1,Infrared LED Transmitter
+7,U6,Package_TSOP_Receiver,1,TSOP IR Receiver Module
+8,R1,R_Axial_DIN0207_L6.3mm_D2.5mm,1,220 Ohm Resistor (IR LED Current Limiter)
+9,U7,Module_RF_433MHz,1,433MHz RF Transmitter and Receiver Pair
+10,C1,C_Radial_D5.0mm_H11.0mm_P2.00mm,1,10uF Decoupling Capacitor (NRF24 Power)
+11,J1,Connector_JST_XH_4Pin,4,JST Connectors / Cable Assemblies
+12,TOOL1,Tool_SolderingIron_USBC,,FNIRSI HS-01 Portable Soldering Iron (65W USB-C)
